@@ -29,14 +29,14 @@ try:
         # If data received, print it
         if len(data) == 2:
             timestamp = str(float(data[0]) / 1000.0)
-            angle = str(int(data[1]) / 600.0 * 2 * math.pi)
+            angle = int(data[1]) / 600.0 * 2 * math.pi
 
         
-            print("Timestamp: " + timestamp + " Angle: " + angle * 180 / math.pi)
+            print("Timestamp: " + timestamp + " Angle: " + str(angle * 180 / math.pi))
 
             f.write(timestamp)
             f.write(", ")
-            f.write(angle)
+            f.write(str(angle))
             f.write("\n")
 
             # Give the device time to send data again
